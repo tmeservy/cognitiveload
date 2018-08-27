@@ -9,6 +9,9 @@ var N_SIZE = 3,
 
 function init(questionid, updateable){
   this.updateable = updateable;
+  alert(updateable);
+  alert(this.updateable);
+
   this.questionid = questionid;
 }
 
