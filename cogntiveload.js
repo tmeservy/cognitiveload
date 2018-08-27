@@ -7,12 +7,10 @@ var N_SIZE = 3,
   updateable=true,
   questionid;
 
-function init(questionid, updateable){
+function createNewGrid(questionid, updateable){
   this.updateable = updateable;
-  alert(updateable);
-  alert(this.updateable);
-
   this.questionid = questionid;
+  init();
 }
 
 function init() {
@@ -47,19 +45,19 @@ function init() {
   document.getElementById("dotgrid").appendChild(grid);
   newGrid();
 
-	Qualtrics.SurveyEngine.addOnPageSubmit(function()
-	{
-		this.setEmbeddedData('Grid1', getGridString()) ;
-		this.setEmbeddedData('Grid1Recall', "00001111") ;
-	});
+	// Qualtrics.SurveyEngine.addOnPageSubmit(function()
+	// {
+	// 	this.setEmbeddedData('Grid1', getGridString()) ;
+	// 	this.setEmbeddedData('Grid1Recall', "00001111") ;
+	// });
 
 }
 
 
 
-function updateGridOutput () {
-  document.getElementById('gridOutput').textContent = getGridString();
-}
+// function updateGridOutput () {
+//   document.getElementById('gridOutput').textContent = getGridString();
+// }
 
 function getOutput(){
 	alert(getGridString());
@@ -79,7 +77,7 @@ function set() {
   	toggleMark = EMPTY;
   }
   this.innerHTML = toggleMark;
-  updateGridOutput();
+  //updateGridOutput();
 }
 
 
@@ -104,7 +102,7 @@ function randomGrid(){
 
 function blankGrid(){
 	initialGrid = "0".repeat(N_SIZE*N_SIZE);
-  return initialBoard.shuffle();
+  return initialGrid.shuffle();
 }
 
 
@@ -132,7 +130,7 @@ function newGrid() {
 			identifier += 1;
  		}
  	}
-  updateGridOutput();
+  //updateGridOutput();
 
 }
 
