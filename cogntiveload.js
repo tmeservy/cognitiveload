@@ -20,7 +20,7 @@ function init() {
   var grid = document.createElement('table');
   grid.setAttribute("border", 1);
   grid.setAttribute("cellspacing", 0);
-  grid.setAttribute('id', "grid_"+this.questionid);
+  grid.setAttribute('id', "innergrid_"+this.questionid);
   var identifier = 1;
   for (var i = 0; i < N_SIZE; i++) {
     var row = document.createElement('tr');
@@ -45,7 +45,7 @@ function init() {
   }
 
 	//document.getElementById("getoutputbutton").addEventListener("click", getOutput);
-  document.getElementById("dotgrid").appendChild(grid);
+  document.getElementById(this.questionid).appendChild(grid);
   newGrid();
 
 	// Qualtrics.SurveyEngine.addOnPageSubmit(function()
