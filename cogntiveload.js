@@ -5,13 +5,15 @@ var N_SIZE = 3,
   initialGrid = "",
   numDots = N_SIZE+1,
   updateable=true,
-  questionid;
+  questionid, containerid="dotgrid";
 
-function createGrid(questionid, size=3, numDots=4, updateable){
+function createGrid(containerid, questionid, size=3, numDots=4, updateable){
   this.N_SIZE = size;
   this.numDots = numDots;
   this.questionid = questionid;
+  this.containerid = containerid;
   this.updateable = updateable;
+
   init();
 }
 
@@ -39,28 +41,17 @@ function init() {
       }
       row.appendChild(cell);
       boxes.push(cell);
-      //identifier += identifier;
       identifier +=1;
     }
   }
 
-	//document.getElementById("getoutputbutton").addEventListener("click", getOutput);
-  document.getElementById(this.questionid).appendChild(grid);
+  document.getElementById(containerid).appendChild(grid);
   newGrid();
 
-	// Qualtrics.SurveyEngine.addOnPageSubmit(function()
-	// {
-	// 	this.setEmbeddedData('Grid1', getGridString()) ;
-	// 	this.setEmbeddedData('Grid1Recall', "00001111") ;
-	// });
 
 }
 
 
-
-// function updateGridOutput () {
-//   document.getElementById('gridOutput').textContent = getGridString();
-// }
 
 function getOutput(){
 	alert(getGridString());
