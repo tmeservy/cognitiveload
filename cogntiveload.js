@@ -15,6 +15,7 @@ function createGrid(questionid, size=3, numDots=4, updateable){
   init();
 }
 
+
 function init() {
   var grid = document.createElement('table');
   grid.setAttribute("border", 1);
@@ -120,7 +121,7 @@ function newGrid() {
  // } else {
 	 initialGrid=randomGrid();
  // }
- 
+
  identifier=1;
  for (var i = 0; i < N_SIZE; i++) {
     for (var j = 0; j < N_SIZE; j++) {
@@ -136,6 +137,16 @@ function newGrid() {
   //updateGridOutput();
 
 }
+
+function saveGrid(questionid){
+  $('NextButton').onclick = function (event) {
+     // Save the current question's response value
+     Qualtrics.SurveyEngine.setEmbeddedData(questionid, getGridString())
+     // and now run the event that the normal next button is supposed to do
+     Qualtrics.SurveyEngine.navClick(event, 'NextButton')
+   }
+}
+
 
 String.prototype.shuffle = function () {
     var a = this.split(""),
