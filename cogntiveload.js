@@ -7,9 +7,11 @@ var N_SIZE = 3,
   updateable=true,
   questionid;
 
-function createNewGrid(questionid, updateable){
-  this.updateable = updateable;
+function createGrid(questionid, size=3, numDots=4, updateable){
+  this.N_SIZE = size;
+  this.numDots = numDots;
   this.questionid = questionid;
+  this.updateable = updateable;
   init();
 }
 
@@ -17,7 +19,7 @@ function init() {
   var grid = document.createElement('table');
   grid.setAttribute("border", 1);
   grid.setAttribute("cellspacing", 0);
-
+  grid.setAttribute('id', "grid_"+this.questionid);
   var identifier = 1;
   for (var i = 0; i < N_SIZE; i++) {
     var row = document.createElement('tr');
@@ -113,11 +115,12 @@ function newGrid() {
      square.innerHTML = EMPTY;
  });
 
- if (updateable){
-	 initialGrid=blankGrid();
- } else {
+ // if (updateable){
+	//  initialGrid=blankGrid();
+ // } else {
 	 initialGrid=randomGrid();
- }
+ // }
+ 
  identifier=1;
  for (var i = 0; i < N_SIZE; i++) {
     for (var j = 0; j < N_SIZE; j++) {
