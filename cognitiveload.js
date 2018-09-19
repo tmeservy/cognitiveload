@@ -96,22 +96,21 @@ function randomGrid(){
 
 function blankGrid(){
 	initialGrid = "0".repeat(N_SIZE*N_SIZE);
-  return initialGrid.shuffle();
+  return initialGrid;
+}
+
+function newGrid() {
+  initialGrid=randomGrid();
+  setGrid(initialGrid);
 }
 
 
-function newGrid() {
-
+function setGrid(initialGrid) {
  //make sure that all boxes have an innerHTML of empty; not sure why below code isn't working
  boxes.forEach(function(square) {
      square.innerHTML = EMPTY;
  });
 
- // if (updateable){
-	//  initialGrid=blankGrid();
- // } else {
-	 initialGrid=randomGrid();
- // }
 
  identifier=1;
  for (var i = 0; i < N_SIZE; i++) {
@@ -125,8 +124,6 @@ function newGrid() {
 			identifier += 1;
  		}
  	}
-  //updateGridOutput();
-
 }
 
 function saveGrid(questionid){
