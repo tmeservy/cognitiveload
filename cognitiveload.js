@@ -130,12 +130,12 @@ function newGrid() {
 }
 
 function saveGrid(questionid){
-  $('NextButton').onclick = function (event) {
+  //$('NextButton').onclick = function (event) {
      // Save the current question's response value
      Qualtrics.SurveyEngine.setEmbeddedData(questionid, getGridString())
      // and now run the event that the normal next button is supposed to do
-     Qualtrics.SurveyEngine.navClick(event, 'NextButton')
-   }
+  //   Qualtrics.SurveyEngine.navClick(event, 'NextButton')
+  // }
 }
 
 
